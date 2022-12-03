@@ -38,11 +38,6 @@ jobs:
       run: |        
         echo "${DOCKER_PASSWORD}" | docker login ${DOCKER_REGISTRY} --username "${DOCKER_USERNAME}" --password-stdin              
     
-    - name: install cryptography prerequire
-      run: |
-        sudo apt-get install build-essential libssl-dev libffi-dev \
-        python3-dev cargo
-
     - name: Run Buildx (push image)      
       if: success()      
       run: |        
