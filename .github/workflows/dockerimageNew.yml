@@ -24,10 +24,13 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push
-        uses: 
-          docker/build-push-action@v2
-          actions-rs/toolchain@v1
-          actions-rs/cargo@v1
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          default: true
+          override: true
+          args: --target armv7-unknown-linux-gnueabihf
+      - uses: docker/build-push-action@v2
         with:
           push: true
           tags: sating/anigamerplus:armhf
@@ -35,10 +38,10 @@ jobs:
           platforms: linux/arm/v7
           cache-from: type=gha
           cache-to: type=gha,mode=max
+      
+      
+        
           
-          toolchain: stable
-          default: true
-          override: true
           
-          use-cross: true
-          args: --target armv7-unknown-linux-gnueabihf
+          
+          
