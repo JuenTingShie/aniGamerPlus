@@ -29,7 +29,7 @@ jobs:
           toolchain: stable
           default: true
           override: true
-          args: --target armv7-unknown-linux-gnueabihf
+          target: armv7-unknown-linux-gnueabihf
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
