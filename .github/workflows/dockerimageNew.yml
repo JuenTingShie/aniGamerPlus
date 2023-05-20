@@ -14,6 +14,11 @@ jobs:
           toolchain: stable
           default: true
           override: true
+      - name: Get Cargo
+        uses: actions-rs/cargo@v1
+        with:
+          use-cross: true
+          args: --target armv7-unknown-linux-gnueabihf
 
       - name: Checkout Origin Repo
         uses: actions/checkout@v2
