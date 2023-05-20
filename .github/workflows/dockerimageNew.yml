@@ -8,18 +8,6 @@ jobs:
   publish-docker:
     runs-on: ubuntu-latest
     steps:
-      - name: Install latest rust toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          default: true
-          override: true
-      - name: Get Cargo
-        uses: actions-rs/cargo@v1
-        with:
-          use-cross: true
-          args: --target armv7-unknown-linux-gnueabihf
-
       - name: Checkout Origin Repo
         uses: actions/checkout@v2
         with:
@@ -36,7 +24,10 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push
-        uses: docker/build-push-action@v2
+        uses: 
+          docker/build-push-action@v2
+          actions-rs/toolchain@v1
+          actions-rs/cargo@v1
         with:
           push: true
           tags: sating/anigamerplus:armhf
@@ -44,3 +35,10 @@ jobs:
           platforms: linux/arm/v7
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          
+          toolchain: stable
+          default: true
+          override: true
+          
+          use-cross: true
+          args: --target armv7-unknown-linux-gnueabihf
