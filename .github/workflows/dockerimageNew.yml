@@ -27,8 +27,8 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: sating/anigamerplus:latest
+          tags: sating/anigamerplus:armhf
           context: "aniGamerPlus"
-          platform: linux/amd64,linux/arm/v7
+          platforms: linux/arm/v7
           cache-from: type=gha
           cache-to: type=gha,mode=max
