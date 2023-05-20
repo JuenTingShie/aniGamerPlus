@@ -6,7 +6,7 @@ on:
 
 jobs:   
   build-armv7:    
-    runs-on: ubuntu-18.04    
+    runs-on: ubuntu-latest
     env:      
       DOCKER_REGISTRY: docker.io
       DOCKER_IMAGE: sating/anigamerplus
@@ -49,7 +49,7 @@ jobs:
         .
 
   build-amd64:
-    runs-on: ubuntu-18.04    
+    runs-on: ubuntu-latest
     env:      
       DOCKER_REGISTRY: docker.io
       DOCKER_IMAGE: sating/anigamerplus
