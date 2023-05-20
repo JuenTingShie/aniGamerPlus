@@ -11,7 +11,7 @@ jobs:
       - name: Checkout Origin Repo
         uses: actions/checkout@v2
         with:
-          repository: "miyouzi/aniGamerPlus"
+          repository: "JuenTingShie/aniGamerPlus"
           path: "aniGamerPlus"
 
       - name: Set up Docker Buildx
