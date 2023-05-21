@@ -5,7 +5,7 @@ RUN apt update && \
 
 RUN apt install curl -y
 
-RUN curl https://sh.rustup.rs -sSf | sh
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 RUN apt install -y python3-dev
 
