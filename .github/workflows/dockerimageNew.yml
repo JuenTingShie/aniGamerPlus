@@ -19,6 +19,7 @@ jobs:
           image: sating/anigamerplus
           registry: docker.io
           multiPlatform: true
+          tags: latest
           platform: linux/amd64,linux/arm/v7
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
