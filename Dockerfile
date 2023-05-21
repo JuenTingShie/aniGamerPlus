@@ -1,14 +1,19 @@
 FROM python:slim
 
 RUN apt update && \
-    apt upgrade -y && \
-    apt install -y g++ gcc make libevent-dev libffi-dev libxml2-dev libxslt-dev \
-        zlib1g-dev ffmpeg build-essential libssl-dev libffi-dev \
-        python3-dev cargo
+    apt upgrade -y 
 
-RUN rm -rf /var/lib/apt/lists/*
+RUN apt install -y cargo
+
+RUN apt install -y python3-dev
+
+RUN apt install -y ffmpeg
+
+RUN apt install -y build-essential g++ gcc libevent-dev libxslt-dev ffmpeg libxslt-dev zlib1g-dev libssl-dev libffi-dev
 
 RUN pip3 install --upgrade pip
+
+RUN rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 COPY . .
