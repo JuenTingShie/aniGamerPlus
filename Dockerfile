@@ -3,6 +3,8 @@ FROM python:slim
 RUN apt update && \
     apt upgrade -y 
 
+RUN apt install curl -y
+
 RUN curl https://sh.rustup.rs -sSf | sh
 
 RUN apt install -y python3-dev
